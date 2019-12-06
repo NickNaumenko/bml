@@ -19,6 +19,14 @@ const getUsers = async query => {
   }
 };
 
+const getUser = async userId => {
+  const rawData = await fs.readFile(pathToUsers, 'utf-8');
+  const users = JSON.parse(rawData);
+
+  return users.find(({id}) => userId === id);
+}
+
 module.exports = {
   getUsers,
+  getUser,
 };
