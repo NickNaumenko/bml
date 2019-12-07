@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.page-header {
+  color: #ffffff;
+  background-color: $primary-color;
+
+  &__content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__logo {
+    font-size: 40px;
+    line-height: 49px;
+  }
+}
