@@ -1,9 +1,9 @@
 import callWebApi from '../helpers/webApiHelper';
 
 export const getUsers = async () => {
-  const response = await callWebApi({
+  const { data } = await callWebApi({
     url: 'users',
-    type: 'GET'
+    method: 'GET'
   });
-  return response.json();
+  return data;
 };
