@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useLocation, useHistory } from 'react-router-dom';
 import { fetchUsers } from '../../containers/Table/actions';
 import TableView from '../../components/TableView';
 import Pagination from '../../components/Pagination';
@@ -15,11 +16,22 @@ const Table = () => {
   const users = useSelector(selectUsers);
   const pagesCount = useSelector(selectPagesCount);
 
+  const { search } = useLocation();
+  const page = new URLSearchParams(search).get('page');
+
   const dispatch = useDispatch();
+  const dispatchFetchUsers = page => dispatch(fetchUsers({ page }));
 
   useEffect(() => {
-    dispatch(fetchUsers(currentPage));
-  }, [currentPage]);
+    dispatchFetchUsers(page);
+  }, []);
+
+  const history = useHistory();
+  const onPageChange = ({ selected }) => {
+    const page = selected + 1;
+    history.push(`?page=${page}`);
+    dispatchFetchUsers(page);
+  };
   
   return isLoading
     ? (
@@ -30,7 +42,8 @@ const Table = () => {
         <TableView users={users} />
         <Pagination
           pageCount={pagesCount}
-          initialPage={currentPage - 1}
+          forcePage={currentPage - 1}
+          onPageChange={onPageChange}
         />
       </>      
     );
