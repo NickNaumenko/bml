@@ -1,8 +1,12 @@
 import { fetchUsers } from './actions';
 
 const initialState = {
-  isLoading: false,
-  items: [],
+  isLoading: true,
+  data: {
+    pagesCount: null,
+    currentPage: 1,
+    users: [],
+  },
 };
 
 export default (state = initialState, action) => {
@@ -15,7 +19,7 @@ export default (state = initialState, action) => {
     case fetchUsers.SUCCESS:
       return {
         ...state,
-        items: action.payload,
+        data: action.payload,
       };
     case fetchUsers.FAILURE:
       return {

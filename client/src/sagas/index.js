@@ -1,5 +1,5 @@
 import { all } from 'redux-saga/effects';
-import usersSaga from '../scenes/StatisticPage/saga';
+import usersSaga from '../containers/Table/saga';
 
 export default function* rootSaga() {
   yield all([usersSaga()]);

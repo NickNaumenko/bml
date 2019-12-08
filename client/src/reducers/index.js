@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import users from '../scenes/StatisticPage/reducer';
+import users from '../containers/Table/reducer';
 
 export default combineReducers({
   users,
