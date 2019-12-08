@@ -18,7 +18,7 @@ const TableView = ({ users, onClick }) => {
     const className = i % 2 !== 0 ? 'even' : '';
   
     return (
-      <tr key={user.id} className={className} onClick={() => console.log(user.id, ' clicked')}>
+      <tr key={user.id} className={className} onClick={() => onClick(user.id)}>
         <td>{user.id}</td>
         <td>{user['first_name']}</td>
         <td>{user['last_name']}</td>

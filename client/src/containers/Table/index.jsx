@@ -32,6 +32,11 @@ const Table = () => {
     history.push(`?page=${page}`);
     dispatchFetchUsers(page);
   };
+
+  const onClick = id => {
+    const idString = String(id);
+    history.push(idString);
+  }
   
   return isLoading
     ? (
@@ -39,7 +44,7 @@ const Table = () => {
     )
     : (
       <>
-        <TableView users={users} />
+        <TableView users={users} onClick={onClick} />
         <Pagination
           pageCount={pagesCount}
           forcePage={currentPage - 1}
