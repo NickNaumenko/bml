@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.statistic-table {
+  background-color: #fbfbfb;
+  border-radius: 1em;
+  overflow: hidden;
+
+  caption {
+    padding-bottom: 0.5em;
+    text-align: left;
+    font-size: 2rem;
+    line-height: 1.2em;
+    font-weight: bold;
+    color: $font-color-dark;
+  }
+
+  thead {
+    color: #ffffff;
+    background-color: $primary-color;
+  }
+
+  tr {
+    &.even {
+      background-color: #F1F1F1;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+
+    &:hover {
+      color: #ffffff;
+      background-color: $primary-color;
+    }
+  }
+
+  th,
+  td {
+    padding: 0.9em 1.5em;
+    vertical-align: middle;
+    font-weight: normal;
+    border: 1px solid #ffffff;
+  }
+
+  
+}
