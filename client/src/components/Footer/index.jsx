@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -8,13 +9,13 @@ const Footer = props => {
   return (
     <footer className={`page-footer${className ? ' ' + className : ''}` }>
       <div className="container">
-        <div className="page-footer__content">
-          <p className="page-footer__column">
-            <a className="page-footer__logo">AppCo</a>
-          </p>
-          <p className="page-footer__column">All rights reserved by ThemeTags</p>
-          <p className="page-footer__column">Copyrights © 2019.</p>
-        </div>
+        <ul className="page-footer__content"> 
+          <li className="page-footer__column">
+            <Link className="page-footer__logo" to="/">AppCo</Link>
+          </li>
+          <li className="page-footer__column">All rights reserved by ThemeTags</li>
+          <li className="page-footer__column">Copyrights © 2019</li>
+        </ul>
       </div>
     </footer>
   )
