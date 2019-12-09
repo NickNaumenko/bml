@@ -1,32 +1,29 @@
-const fs = require('fs').promises;
-const path = require('path');
 const paginate = require('../../helpers/paginate');
+const BaseRepository = require('./baseRepository');
+const path = require('path');
 
-const pathToUsers = path.resolve(__dirname, '../users.json');
+pathToUsers = path.resolve(__dirname, '../users.json');
 
-const getUsers = async query => {
-  const {page = 1} = query;
-  const ITEMS_PER_PAGE = 50;
-
-  const rawData = await fs.readFile(pathToUsers, 'utf-8');
-  const users = JSON.parse(rawData);
-
-  const {offset, limit, pagesCount, currentPage} = paginate(users.length, page, ITEMS_PER_PAGE);
-  return {
-    pagesCount,
-    currentPage,
-    users: users.slice(offset, offset + limit),
+class UsersRepository extends BaseRepository {
+  async getUsers(query) {
+    const {page = 1} = query;
+    const ITEMS_PER_PAGE = 50;
+  
+    const users = await this.getAll(this.path);
+  
+    const {offset, limit, pagesCount, currentPage} = paginate(users.length, page, ITEMS_PER_PAGE);
+    return {
+      pagesCount,
+      currentPage,
+      users: users.slice(offset, offset + limit),
+    }    
   }
-};
 
-const getUser = async userId => {
-  const rawData = await fs.readFile(pathToUsers, 'utf-8');
-  const users = JSON.parse(rawData);
+  async getUser(userId) {
+    const users = await this.getAll(this.path);
 
-  return users.find(({id}) => userId === id);
+    return users.find(({id}) => userId === id);    
+  }
 }
 
-module.exports = {
-  getUsers,
-  getUser,
-};
+module.exports = new UsersRepository(pathToUsers);
