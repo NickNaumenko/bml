@@ -4,6 +4,8 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { fetchUsers } from '../../containers/Table/actions';
 import TableView from '../../components/TableView';
 import Pagination from '../../components/Pagination';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import routes from '../../routes';
 
 const Table = () => {
   const selectIsLoading = ({ users: { isLoading } }) => isLoading;
@@ -35,8 +37,10 @@ const Table = () => {
 
   const onClick = id => {
     const idString = String(id);
-    history.push(idString);
+    history.push(`${history.location.pathname}/${idString}`);
   }
+
+  const breadcrumbs = [routes.home, routes.users];
   
   return isLoading
     ? (
@@ -44,6 +48,7 @@ const Table = () => {
     )
     : (
       <>
+        <Breadcrumbs breadcrumbs={breadcrumbs} />
         <TableView users={users} onClick={onClick} />
         <Pagination
           pageCount={pagesCount}
