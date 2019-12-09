@@ -1,18 +1,18 @@
 @import '../../styles/variables.scss';
 
+.statistic-title {
+  padding-bottom: 0.5em;
+  text-align: left;
+  font-size: 2rem;
+  line-height: 1.2em;
+  font-weight: bold;
+  color: $font-color-dark;  
+}
+
 .statistic-table {
   background-color: #fbfbfb;
   border-radius: 1em;
   overflow: hidden;
-
-  caption {
-    padding-bottom: 0.5em;
-    text-align: left;
-    font-size: 2rem;
-    line-height: 1.2em;
-    font-weight: bold;
-    color: $font-color-dark;
-  }
 
   thead {
     color: #ffffff;

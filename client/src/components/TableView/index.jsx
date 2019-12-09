@@ -30,16 +30,19 @@ const TableView = ({ users, onClick }) => {
   };
 
   return (
-    <table className="statistic-table">
-      <thead>
-        <tr>
-          {headers.map(header => <th key={header}>{header}</th>)}
-        </tr>
-      </thead>
-      <tbody>
-        {users.map(renderRow)}
-      </tbody>
-    </table>
+    <>
+      <h1 className="statistic-title">Users statistics</h1>
+      <table className="statistic-table">
+        <thead>
+          <tr>
+            {headers.map(header => <th key={header}>{header}</th>)}
+          </tr>
+        </thead>
+        <tbody>
+          {users.map(renderRow)}
+        </tbody>
+      </table>
+    </>
   );
 };
 
