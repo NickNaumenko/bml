@@ -9,7 +9,13 @@
     padding-bottom: 10px;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   &__logo {
+    font: inherit;
+    color: #ffffff;
     font-size: 40px;
     line-height: 49px;
   }
