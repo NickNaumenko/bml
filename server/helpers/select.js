@@ -99,7 +99,11 @@ class Select {
     });
 
     const grouped = new Map();
-    items.forEach(item => {
+    items.forEach((item, i) => {
+      if (!groupAttr) {
+        grouped.set(i, {...item});
+        return;
+      }
       const group = groups.get(item[groupAttr]);
 
       if (!grouped.has(item[groupAttr])) {

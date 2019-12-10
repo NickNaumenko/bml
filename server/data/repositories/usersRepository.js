@@ -8,8 +8,8 @@ pathToUsers = path.resolve(__dirname, '../users.json');
 const MAX_COUNT = 50;
 
 class UsersRepository extends BaseRepository {
-  async getUsers(query) {
-    const { page = 1, count = MAX_COUNT } = query;
+  async getUsers(params) {
+    const { page = 1, count = MAX_COUNT } = params;
     if (count > MAX_COUNT) {
       count = MAX_COUNT;
     }
@@ -20,9 +20,8 @@ class UsersRepository extends BaseRepository {
     const users = await Promise.all(allUsers.slice(offset, offset + limit)
       .map(async user => {
         const stats = await usersStatsRepository
-          .select(['page_views', 'total_page_views'])
+          .select(['total_clicks', 'total_page_views'])
           .and({attr: 'user_id', op: '=', value: user.id})
-          .groupBy('user_id')
           .sum('clicks', 'total_clicks')
           .sum('page_views', 'total_page_views')
           .run();
