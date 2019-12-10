@@ -25,6 +25,8 @@ const TableView = ({ users, onClick }) => {
         <td>{user.email}</td>
         <td>{user.gender}</td>
         <td>{user['ip_address']}</td>
+        <td>{user['total_clicks']}</td>
+        <td>{user['total_page_views']}</td>
       </tr>
     );
   };
