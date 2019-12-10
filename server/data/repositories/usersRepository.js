@@ -22,6 +22,7 @@ class UsersRepository extends BaseRepository {
         const stats = await usersStatsRepository
           .select(['total_clicks', 'total_page_views'])
           .and({attr: 'user_id', op: '=', value: user.id})
+          .groupBy('id')
           .sum('clicks', 'total_clicks')
           .sum('page_views', 'total_page_views')
           .run();
