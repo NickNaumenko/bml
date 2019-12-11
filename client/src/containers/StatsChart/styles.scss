@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.stats-chart {
+  padding-bottom: 32px;
+  
+  &__title {
+    padding-bottom: 1em;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: $font-color-dark;
+  }
+}

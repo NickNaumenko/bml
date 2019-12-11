@@ -1,5 +1,6 @@
 import React from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
+import UserStats from '../../containers/UserStats';
 import routes from '../../routes';
 
 const UserPage = () => {
@@ -7,6 +8,7 @@ const UserPage = () => {
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <UserStats />
     </>
   )
 };
