@@ -14,7 +14,7 @@ class UsersRepository extends BaseRepository {
       count = MAX_COUNT;
     }
 
-    const allUsers = await this.select().groupBy('id').run();
+    const allUsers = await this.select().run();
     const {offset, limit, pagesCount, currentPage} = paginate(allUsers.length, page, count);
   
     const users = await Promise.all(allUsers.slice(offset, offset + limit)
