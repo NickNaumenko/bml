@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LineChart, Line, CartesianGrid, YAxis, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, CartesianGrid, YAxis, XAxis, ResponsiveContainer } from 'recharts';
 import { getUserStats } from '../../services/usersService';
 
 import './styles.scss';
@@ -24,6 +24,7 @@ const StatsChart = ({ userId, startDate, endDate }) => {
           <LineChart data={stats} margin={margin}>
             <CartesianGrid vertical={false} stroke="#f1f1f1" />
             <YAxis width={50}  axisLine={false} />
+            <XAxis dataKey="date" scale="date" />
             <Line
               type="monotone"
               dataKey="clicks"
