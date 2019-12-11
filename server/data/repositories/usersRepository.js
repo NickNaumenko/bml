@@ -10,13 +10,14 @@ const MAX_COUNT = 50;
 class UsersRepository extends BaseRepository {
   async getUsers(params) {
     const { page = 1, count = MAX_COUNT } = params;
-    if (count > MAX_COUNT) {
-      count = MAX_COUNT;
+    const numberCount = Number(count);
+    if (numberCount > MAX_COUNT) {
+      numberCount = MAX_COUNT;
     }
 
     const allUsers = await this.select().run();
-    const {offset, limit, pagesCount, currentPage} = paginate(allUsers.length, page, count);
-  
+    const {offset, limit, pagesCount, currentPage} = paginate(allUsers.length, page, numberCount);
+
     const users = await Promise.all(allUsers.slice(offset, offset + limit)
       .map(async user => {
         const stats = await usersStatsRepository
