@@ -4,8 +4,9 @@ import { useLocation, useHistory } from 'react-router-dom';
 import { fetchUsers } from '../../containers/Table/actions';
 import TableView from '../../components/TableView';
 import Pagination from '../../components/Pagination';
-import Breadcrumbs from '../../components/Breadcrumbs';
 import routes from '../../routes';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import Loader from '../../components/Loader';
 
 const Table = () => {
   const selectIsLoading = ({ users: { isLoading } }) => isLoading;
@@ -42,11 +43,10 @@ const Table = () => {
 
   const breadcrumbs = [routes.home, routes.users];
   
-  return isLoading
-    ? (
-      <div>loading...</div>
-    )
-    : (
+  return isLoading ?
+    (
+      <Loader size={150} />
+    ) : (
       <>
         <Breadcrumbs breadcrumbs={breadcrumbs} />
         <TableView users={users} onClick={onClick} />

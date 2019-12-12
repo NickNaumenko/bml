@@ -5,11 +5,13 @@ import Footer from '../../components/Footer';
 import Table from '../../containers/Table';
 import routes from '../../routes';
 
+import './styles.scss';
+
 const StatisticPage = () => {
   const { path } = useRouteMatch();
 
   return (
-    <>
+    <div className="statistic-page">
       <Header />
       <div className="container">
         <Switch>
@@ -18,7 +20,7 @@ const StatisticPage = () => {
         </Switch>
       </div>
       <Footer />
-    </>
+    </div>
   )
 };
 
