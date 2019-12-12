@@ -1,3 +1,4 @@
+before running server you shoud install node -v 12.x
 ## Instalation  
 ```
 cd server/
