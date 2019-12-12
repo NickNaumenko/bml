@@ -11,6 +11,12 @@ router
       .then(data => res.send(data))
       .catch(next);
   })
+  .get('/:id', (req, res, next) => {
+    const { params: { id } } = req;
+    usersService.getUser(id)
+      .then(data => res.send(data))
+      .catch(next);
+  })
   .get('/:id/stats', (req, res, next) => {
     const { query, params: { id } } = req;
     usersStatsService.getByUserId(id, query)

@@ -39,8 +39,9 @@ class UsersRepository extends BaseRepository {
 
   async getUser(userId) {
     const users = await this.getAll(this.path);
+    const numUserId = Number(userId);
 
-    return users.find(({id}) => userId === id);    
+    return users.find(({id}) => numUserId === id);    
   }
 }
 
