@@ -114,7 +114,9 @@ const Landing = () => (
           <Subscribe />
         </div>
         <div className="landing-footer__bottom">
-          <p className="landing-footer__column">AppCo</p>
+          <p className="landing-footer__column">
+            <span className="landing-footer__logo">AppCo</span>
+          </p>
           <p className="landing-footer__column">All rights reserved by ThemeTags</p>
           <p className="landing-footer__column">Copyrights © 2019.</p>
         </div>
