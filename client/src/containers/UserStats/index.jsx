@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import DateRange from '../../components/DateRange';
 import StatsChart from '../../containers/StatsChart';
+import moment from 'moment';
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const UserStats = () => {
-  const [startDate, setStartDate] = useState(new Date("2019/02/08"));
+  const [startDate, setStartDate] = useState(new Date(moment().subtract(1, 'week')));
   const [endDate, setEndDate] = useState(new Date());
 
   return (
