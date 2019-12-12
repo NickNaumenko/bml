@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const UserStats = () => {
+const UserStats = ({ userId }) => {
   const [startDate, setStartDate] = useState(new Date(moment().subtract(1, 'week')));
   const [endDate, setEndDate] = useState(new Date());
 
@@ -18,7 +18,7 @@ const UserStats = () => {
         onEndDateChange={setEndDate}
       />
       <StatsChart
-        userId={5}
+        userId={userId}
         startDate={startDate}
         endDate={endDate}
       />

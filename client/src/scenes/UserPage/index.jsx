@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import UserStats from '../../containers/UserStats';
 import routes from '../../routes';
+import { useParams } from 'react-router-dom';
+import * as usersService from '../../services/usersService';
 
 const UserPage = () => {
-  const breadcrumbs = [routes.home, routes.users, {name: 'user name'}];
+  const { id } = useParams(routes.userPage);
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    usersService.getUser(id)
+      .then(user => setUser(user));
+  }, [id]);
+  
+  if (!user) {
+    return <div>Loading</div>
+  }
+
+  const fullname = `${user['first_name']} ${user['last_name']}`;
+  
+  const breadcrumbs = [routes.home, routes.users, {name: fullname}];
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <UserStats />
+      <UserStats userId={id} />
     </>
   )
 };
