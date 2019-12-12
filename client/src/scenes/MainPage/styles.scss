@@ -1,6 +1,12 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
+.landing-header {
+  position: absolute;
+  width: 100%;
+  background-color: transparent;
+}
+
 .lead {
   color: #ffffff;
   background-image: url(../../assets/img/bg-top.svg);
@@ -22,7 +28,7 @@
 
   &__content {
     width: 50%;
-    padding-top: 10%;
+    padding-top: 121px;
     padding-bottom: 248px;
   }
 
@@ -374,6 +380,7 @@
 
 .landing-footer {
   background-image: url(../../assets/img/bg-bottom.svg);
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom left 0 right 0;
 
