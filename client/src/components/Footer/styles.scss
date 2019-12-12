@@ -19,4 +19,14 @@
     color: inherit;
     text-decoration: inherit;
   }
+
+  @media (max-width: $sm) {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__column {
+      padding: .5em 0;
+    }
+  }
 }
