@@ -1,5 +1,5 @@
-before running server you shoud install node -v 12.x
-## Instalation  
+## before running server you shoud install node -v 12.x
+## Installation  
 ```
 cd server/
 npm i
