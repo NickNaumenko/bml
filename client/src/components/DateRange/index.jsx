@@ -30,6 +30,7 @@ const DateRange = ({
         minDate={startDate}
         className="daterange__input"
       />
+      <span style={{fontSize: 10}}>DB contains staticts for October, so choose corresponding date range</span>
     </>
   );
 };

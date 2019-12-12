@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.user-page {
+  &__title {
+    color: $font-color-dark;
+    font-size: 2rem;
+    line-height: 1.2em;
+    padding-bottom: .75em;
+  }
+}

@@ -5,6 +5,8 @@ import routes from '../../routes';
 import { useParams } from 'react-router-dom';
 import * as usersService from '../../services/usersService';
 
+import './styles.scss';
+
 const UserPage = () => {
   const { id } = useParams(routes.userPage);
 
@@ -24,6 +26,7 @@ const UserPage = () => {
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <h1 className="user-page__title">{fullname}</h1>
       <UserStats userId={id} />
     </>
   )
