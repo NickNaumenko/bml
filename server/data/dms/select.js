@@ -1,4 +1,4 @@
-const { match } = require('../helpers');
+const { match } = require('../../helpers');
 
 class Select {
   #conditions = {
