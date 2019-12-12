@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../../components/Button';
 import Subscribe from '../../components/Subscribe';
 import Header from '../../components/Header';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -16,7 +17,9 @@ const Landing = () => (
             <p className="lead__text">
               Our design projects are fresh and simple and will benefit your business greatly. Learn more about our work!
             </p>
-            <Button className="lead__button" inverted>View Stats</Button>
+            <Link to="/users">
+              <Button className="lead__button" inverted>View Stats</Button>
+            </Link>
           </div>
         </div>
       </section>
